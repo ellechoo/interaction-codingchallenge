@@ -9,7 +9,7 @@ h1 {
   	font-size: 30mm;
 	font-weight: bold;
 	letter-spacing: 5mm;
-	line-height: 5mm;
+	line-height: normal;
 }
 
 h2 {
@@ -18,7 +18,7 @@ h2 {
     text-align: right;
     font-weight: bold;
 	text-transform: capitalize;
-	line-height: 5mm;
+	line-height: normal;
 }
 
 h3 {
@@ -33,7 +33,7 @@ p {
 	font-weight: regular;
     text-align: right;
     text-indent: 1mm;
-	line-height: 2mm;
+	line-height: normal;
 }
 
 ol li {
@@ -42,6 +42,6 @@ ol li {
 	font-weight: regular;
     text-align: left;
     text-indent: 4mm;
-	line-height: 4mm;
+	line-height: normal;
 	color: white;
 }
