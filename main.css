@@ -1,26 +1,33 @@
 body {
-	background-color: rgb(200, 100, 200);
+	background-color: rgb(190, 97, 190);
 	color: rgb(250, 250, 0);
 	margin: 2cm
 }
 
 h1 {
-	font-size: 20mm;
+	font-family: "Syne", serif;
+  	font-optical-sizing: auto;
 	font-weight: bold;
+	font-family: 
 }
 
 h2 {
+	font-family: "Syne", serif;
+  	font-optical-sizing: auto;
 	font-size: 16mm;
     text-align: right;
     font-weight: bold;
-    font-family: Helvetica", sans-serif;
 }
 
 h3 {
+	font-family: "Syne", serif;
+  	font-optical-sizing: auto;
     font-size: 12mm;
 	font-weight: bold;
 }
 p {
+	font-family: "Syne", serif;
+  	font-optical-sizing: auto;
     font-size: 10mm;
 	font-weight: regular;
     text-align: right;
