@@ -8,6 +8,7 @@ h1 {
 	font-family: "Syne", serif;
   	font-size: 30mm;
 	font-weight: bold;
+	letter-spacing: 5mm;
 }
 
 h2 {
@@ -22,10 +23,21 @@ h3 {
     font-size: 12mm;
 	font-weight: bold;
 }
+
 p {
 	font-family: "Syne", serif;
     font-size: 10mm;
 	font-weight: regular;
     text-align: right;
     text-indent: 1mm;
+	line-height: 2mm;
+}
+
+ol {
+	font-family: Arial, Helvetica, sans-serif
+    font-size: 12mm;
+	font-weight: regular;
+    text-align: left;
+    text-indent: 4mm;
+	line-height: 4mm;
 }
