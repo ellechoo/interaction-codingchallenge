@@ -6,14 +6,12 @@ body {
 
 h1 {
 	font-family: "Syne", serif;
-  	font-optical-sizing: auto;
+  	font-size: 30mm;
 	font-weight: bold;
-	font-family: 
 }
 
 h2 {
 	font-family: "Syne", serif;
-  	font-optical-sizing: auto;
 	font-size: 16mm;
     text-align: right;
     font-weight: bold;
@@ -21,13 +19,11 @@ h2 {
 
 h3 {
 	font-family: "Syne", serif;
-  	font-optical-sizing: auto;
     font-size: 12mm;
 	font-weight: bold;
 }
 p {
 	font-family: "Syne", serif;
-  	font-optical-sizing: auto;
     font-size: 10mm;
 	font-weight: regular;
     text-align: right;
