@@ -7,8 +7,21 @@ body {
 h1 {
 	font-size: 20mm;
 	font-weight: bold;
+
+}
+
+h2 {
+	text-align: right;
+    font-family: Helvetica", sans-serif;
 }
 
 h2 {
 	font-family: Helvetica", sans-serif;
+}
+
+p {
+    font-size: 10mm;
+	font-weight: regular;
+    text-align: right;
+    text-indent: 1mm;
 }
