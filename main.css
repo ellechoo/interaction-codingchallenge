@@ -16,6 +16,7 @@ h2 {
 	font-size: 16mm;
     text-align: right;
     font-weight: bold;
+	text-transform: capitalize;
 }
 
 h3 {
@@ -34,10 +35,11 @@ p {
 }
 
 ol {
-	font-family: Arial, Helvetica, sans-serif
+	font-family: Arial, Helvetica, sans-serif;
     font-size: 12mm;
 	font-weight: regular;
     text-align: left;
     text-indent: 4mm;
 	line-height: 4mm;
+	color: white;
 }
