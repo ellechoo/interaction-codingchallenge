@@ -96,14 +96,14 @@ p {
 	}
 	
     .card__more:hover {
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(158, 45, 39);
 		border-radius: 3rem; 
 	}
-
 	
-
-      .card__more:active {}
-    }
+	.card__more:active {
+		background-color: rgb(206, 81, 73);
+		transform: scale(0.9);
+	}
 
     .cards {
       display: flex;
