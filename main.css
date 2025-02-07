@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(255, 223, 255);
+	background-color: rgb(206, 81, 73);
 	color: rgb(0, 0, 0);
 	margin: 2cm
 }
@@ -31,7 +31,7 @@ p {
     .card {
 		line-height: normal;
 		padding: 2rem;
-		background-color:rgb(192, 124, 255);
+		background-color:rgb(231, 180, 54);
 		border-radius: 2rem;
 	}
 
@@ -48,7 +48,7 @@ p {
 		display: block;
 		text-align: center;
 		padding: 1rem;
-		background-color: rgb(78, 23, 130);
+		background-color: rgb(201, 144, 16);
 		transition: border-radius 0.2s linear;
 	}
 
@@ -58,12 +58,12 @@ p {
 	}
 
     .card__more:active {
-		background-color:rgb(143, 158, 255);
+		background-color:rgb(249, 202, 76);
 	}
 
     @media screen and (min-width: 1024px) {
       .card {
-		background-color: white;
+		background-color: rgb(231, 180, 54);
 	  }
 
       .card__title {
