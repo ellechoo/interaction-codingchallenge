@@ -82,9 +82,10 @@ p {
 	  }
 
 	  .card__image {
-		width: 100%;
+		width: 30%;
 		height: auto;
-		border-radius: 1rem;
+		display: block;
+		padding: 1rem;
 	}
 	
     .card__more {
