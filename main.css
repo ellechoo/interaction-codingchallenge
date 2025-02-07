@@ -96,6 +96,7 @@ p {
 		font-style: normal;
 		font-size: 2rem;
 		padding: 1rem;
+		color: rgb(233, 111, 102);
 		background-color: rgb(201, 144, 16);
 		transition: border-radius 0.2s linear;
 	}
