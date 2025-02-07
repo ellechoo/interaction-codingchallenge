@@ -41,7 +41,7 @@ p {
     .card__excerpt {}
 
     .card__image {
-		size-adjust: 50%;
+		size: 30%;
 	}
 
     .card__more {
@@ -62,9 +62,18 @@ p {
 	}
 
     @media screen and (min-width: 1024px) {
-      .card {}
-      .card__title {}
-      .card__excerpt {}
+      .card {
+		background-color: white;
+	  }
+
+      .card__title {
+		font-size: 3.75rem;
+	  }
+
+      .card__excerpt {
+		font-size: 1.5rem;
+	  }
+
       .card__image {}
       .card__more {}
       .card__more:hover {}
