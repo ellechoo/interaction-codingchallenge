@@ -23,8 +23,6 @@ p {
 
 
 
- /* Use these classes to style the .card component */
-
  .card__title {
 
  }
@@ -41,8 +39,10 @@ p {
     .card__excerpt {}
 
     .card__image {
-		size: 30%;
-	}
+		width: 30%;
+		height: auto;
+		display: block;
+	}	
 
     .card__more {
 		display: block;
@@ -79,8 +79,6 @@ p {
       .card__more:hover {}
       .card__more:active {}
     }
-
-    /* You can leave everything below as is — we'll explain flexbox in a later lecture! */
 
     .cards {
       display: flex;
