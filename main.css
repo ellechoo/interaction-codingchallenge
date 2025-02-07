@@ -1,12 +1,12 @@
 body {
 	background-color: rgb(206, 81, 73);
-	color: rgb(0, 0, 0);
+	color: rgb(206, 81, 73);
 	margin: 2cm
 }
 
 h1 {
 	font-family: "Londrina Solid", sans-serif;
-  	font-size: 35mm;
+  	font-size: 10rem;
 	font-weight: 400;
 	font-style: normal;
 	letter-spacing: 1.5mm;
@@ -17,7 +17,7 @@ p {
 	font-family: "Londrina Solid", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 5mm;
+	font-size: 15mm;
 	line-height: normal;
 }
 
@@ -38,7 +38,7 @@ p {
     
 	.card__excerpt {
 		font-family: "Londrina Solid", sans-serif;
-		font-size: 1.2rem;
+		font-size: 2.5rem;
 		font-weight: 400;
 		color: rgb(206, 81, 73);
 		text-align: center;
@@ -81,9 +81,27 @@ p {
 		font-size: 1.5rem;
 	  }
 
-      .card__image {}
-      .card__more {}
-      .card__more:hover {}
+	  .card__image {
+		width: 100%;
+		height: auto;
+		border-radius: 1rem;
+	}
+	
+    .card__more {
+		display: block;
+		text-align: center;
+		padding: 1rem;
+		background-color: rgb(201, 144, 16);
+		transition: border-radius 0.2s linear;
+	}
+	
+    .card__more:hover {
+		background-color: rgb(255, 255, 255);
+		border-radius: 3rem; 
+	}
+
+	
+
       .card__more:active {}
     }
 
