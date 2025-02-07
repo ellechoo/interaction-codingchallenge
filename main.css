@@ -12,21 +12,6 @@ h1 {
 	line-height: normal;
 }
 
-h2 {
-	font-family: "Syne", serif;
-	font-size: 16mm;
-    text-align: right;
-    font-weight: bold;
-	text-transform: capitalize;
-	line-height: normal;
-}
-
-h3 {
-	font-family: "Syne", serif;
-    font-size: 12mm;
-	font-weight: bold;
-}
-
 p {
 	font-family: "Syne", serif;
     font-size: 10mm;
@@ -36,12 +21,33 @@ p {
 	line-height: normal;
 }
 
-ol li {
-	font-family: Arial, Helvetica, sans-serif;
-    font-size: 12mm;
-	font-weight: regular;
-    text-align: left;
-    text-indent: 4mm;
-	line-height: normal;
-	color: white;
-}
+
+
+ /* Use these classes to style the .card component */
+
+    .card {}
+    .card__title {}
+    .card__excerpt {}
+    .card__image {}
+    .card__more {}
+    .card__more:hover {}
+    .card__more:active {}
+
+    @media screen and (min-width: 1024px) {
+      .card {}
+      .card__title {}
+      .card__excerpt {}
+      .card__image {}
+      .card__more {}
+      .card__more:hover {}
+      .card__more:active {}
+    }
+
+    /* You can leave everything below as is — we'll explain flexbox in a later lecture! */
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 8vw;
+    }
