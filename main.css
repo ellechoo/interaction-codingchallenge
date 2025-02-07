@@ -5,19 +5,19 @@ body {
 }
 
 h1 {
-	font-family: "Syne", serif;
+	font-family: "Londrina Solid", serif;
   	font-size: 35mm;
-	font-weight: bold;
+	font-weight: 400;
+	font-style: normal;
 	letter-spacing: 1.5mm;
 	line-height: normal;
 }
 
 p {
-	font-family: "Syne", serif;
-    font-size: 5mm;
-	font-weight: regular;
-    text-align: left;
-    text-indent: 1mm;
+	font-family: "Londrina Solid", serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 5mm;
 	line-height: normal;
 }
 
