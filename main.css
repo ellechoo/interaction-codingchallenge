@@ -16,7 +16,7 @@ p {
 	font-family: "Syne", serif;
     font-size: 10mm;
 	font-weight: regular;
-    text-align: right;
+    text-align: left;
     text-indent: 1mm;
 	line-height: normal;
 }
@@ -25,8 +25,19 @@ p {
 
  /* Use these classes to style the .card component */
 
-    .card {}
-    .card__title {}
+ .card__title {
+
+ }
+ 
+
+    .card {
+		line-height: normal;
+		padding: 2rem;
+		background-color:rgb(192, 124, 255);
+		border-radius: 2rem;
+	}
+
+    
     .card__excerpt {}
     .card__image {}
     .card__more {}
