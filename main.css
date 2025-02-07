@@ -6,15 +6,15 @@ body {
 
 h1 {
 	font-family: "Syne", serif;
-  	font-size: 30mm;
+  	font-size: 35mm;
 	font-weight: bold;
-	letter-spacing: 5mm;
+	letter-spacing: 1.5mm;
 	line-height: normal;
 }
 
 p {
 	font-family: "Syne", serif;
-    font-size: 10mm;
+    font-size: 5mm;
 	font-weight: regular;
     text-align: left;
     text-indent: 1mm;
@@ -43,10 +43,23 @@ p {
     .card__image {
 		size-adjust: 50%;
 	}
-	
-    .card__more {}
-    .card__more:hover {}
-    .card__more:active {}
+
+    .card__more {
+		display: block;
+		text-align: center;
+		padding: 1rem;
+		background-color: rgb(78, 23, 130);
+		transition: border-radius 0.2s linear;
+	}
+
+
+    .card__more:hover {
+		border-radius: 3rem;
+	}
+
+    .card__more:active {
+		background-color:rgb(143, 158, 255);
+	}
 
     @media screen and (min-width: 1024px) {
       .card {}
