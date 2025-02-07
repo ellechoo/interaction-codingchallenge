@@ -45,7 +45,7 @@ p {
 	}	
 
     .card__image {
-		width: 80%;
+		width: 90%;
 		height: auto;
 		display: block;
 		margin: 0 auto;
@@ -74,9 +74,11 @@ p {
     @media screen and (min-width: 1024px) {
 		.card__image {
 			width: 90%;
-			height: auto; 
+			height: auto;
 			display: block;
-			margin: 0.5 auto;
+			margin: 0 auto;
+			border-radius: 1.2rem;
+			object-fit: cover;
 			}
 
       .card__title {
