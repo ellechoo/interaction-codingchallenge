@@ -86,13 +86,6 @@ p {
       .card__excerpt {
 		font-size: 1.5rem;
 	  }
-
-	  .card__image {
-		width: 30%;
-		height: auto;
-		display: block;
-		padding: 1rem;
-	}
 	
     .card__more {
 		display: block;
