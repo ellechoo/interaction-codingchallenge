@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(206, 81, 73);
+	background-color: rgb(73, 100, 206);
 	color: rgb(206, 81, 73);
 	margin: 2cm
 }
@@ -14,7 +14,7 @@ h1 {
 }
 
 p {
-	font-family: "Londrina Solid", sans-serif;
+	font-family:Georgia, 'Times New Roman', Times, serif;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 15mm;
@@ -103,7 +103,7 @@ p {
 	}
 	
     .card__more:hover {
-		background-color: rgb(158, 45, 39);
+		background-color: rgb(41, 18, 143);
 		border-radius: 3rem; 
 	}
 	
