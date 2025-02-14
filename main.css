@@ -1,12 +1,12 @@
 body {
-	background-color: rgb(73, 100, 206);
-	color: rgb(206, 81, 73);
-	margin: 2cm
+	background-color: rgb(75, 80, 200);
+	color: rgb(200, 50, 70);
+	margin: 5cm
 }
 
 h1 {
-	font-family: "Londrina Solid", sans-serif;
-  	font-size: 10rem;
+	font-family: "Lobster", sans-serif;
+  	font-size: 8rem;
 	font-weight: 400;
 	font-style: normal;
 	letter-spacing: 1.5mm;
@@ -17,7 +17,7 @@ p {
 	font-family:Georgia, 'Times New Roman', Times, serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 15mm;
+	font-size: 13mm;
 	line-height: normal;
 }
 
@@ -32,13 +32,13 @@ p {
     .card {
 		line-height: normal;
 		padding: 2rem;
-		background-color:rgb(231, 180, 54);
+		background-color:rgb(230, 160, 50);
 		border-radius: 2rem;
 	}
     
 	.card__excerpt {
-		font-family: "Londrina Solid", sans-serif;
-		font-size: 2.5rem;
+		font-family: Georgia, 'Times New Roman', Times, serif
+		font-size: 2.3rem;
 		font-weight: 400;
 		color: rgb(206, 81, 73);
 		text-align: center;
