@@ -3,27 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Challenge March 7</title>
+    <title>Flow Demo</title>
+    <style>
+        /* Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="first.css">
+        p1 {
+        font-family: Arial, sans-serif;
+        font-size: 1.5em;
+        display: block;
+        margin-bottom: 50px;
+        }
+
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 2.5em;
+            color: violet;
+        }
+
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 3.5em;
+        }
+
+        .stickybox {
+            position: sticky;
+            top: 0;
+            background-color: #ffddf7;
+            padding: 50px 0;
+            text-align: center;
+            color: black;
+            font-size: 20px;
+        }
+
+        .envelope {
+            width: 75%;
+            margin: 2em auto;
+            padding: 3em;
+            font-size: 1.5em;
+            background-color: rgb(170, 207, 244);
+            position: relative;
+        }
+
+        .fixed-box {
+            background-color: rgb(12, 48, 92);
+            color: white;
+            position: fixed;
+            top: 1.5em;
+            right: 1.5em;
+            z-index: 2;
+            padding: 1.5em;
+        }
+
+    </style>
 </head>
-
 <body>
 
-  <nav>
 
-    <a href="index.html">First</a>
-    <a href="index2.html">Second</a>
+    <div class="envelope">
 
-  </nav>
+      <div class="fixed-box"><h1>New York City</h1></div>
+      <br>
 
-  <div class="envelope">
+      <div class="stickybox"><h2>Uptown</h2></div>
+      <br>
 
-    <div class="box">First</div>
-    <div class="box2"></div>
-    <div class="box3"></div>
+      <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Central_Park" target="_blank"><p1>Central Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Riverside_Park_(Manhattan)" target="_blank"><p1>Riverside Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Fort_Tryon_Park" target="_blank"><p1>Fort Tryon Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Flushing_Meadows%E2%80%93Corona_Park" target="_blank"><p1>Flushing Meadows–Corona Park</p1></a></li>
+      </ul>
+      <br><br>
 
-  </div>
-  
+      <div class="stickybox"><h2>Midtown</h2></div>
+      <br>
+
+      <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Bryant_Park" target="_blank"><p1>Bryant Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Hudson_River_Park" target="_blank"><p1>Hudson River Park</p1></a></li>
+      </ul>
+      <br><br>
+
+      <div class="stickybox"><h2>Downtown</h2></div>
+      <br>
+
+        <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Washington_Square_Park" target="_blank"><p1>Washington Square Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/High_Line_(Manhattan)" target="_blank"><p1>The High Line</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge_Park" target="_blank"><p1>Brooklyn Bridge Park</p1></a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Prospect_Park_(Brooklyn)" target="_blank"><p1>Prospect Park</p1></a></li>
+      </ul>
+
+      <br><br>
+    
+    </div>
+
 </body>
 </html>
