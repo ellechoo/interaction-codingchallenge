@@ -3,106 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Demo</title>
+    <title>Fullscreen Button</title>
     <style>
-        /* Reset and Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        p1 {
-        font-family: Arial, sans-serif;
-        font-size: 1.5em;
-        display: block;
-        margin-bottom: 50px;
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-
-        h1 {
-            font-family: Arial, sans-serif;
-            font-size: 2.5em;
-            color: violet;
-        }
-
-        h2 {
-            font-family: Arial, sans-serif;
-            font-size: 3.5em;
-        }
-
-        .stickybox {
-            position: sticky;
-            top: 0;
-            background-color: #ffddf7;
-            padding: 50px 0;
-            text-align: center;
-            color: black;
-            font-size: 20px;
-        }
-
-        .envelope {
-            width: 75%;
-            margin: 2em auto;
-            padding: 3em;
-            font-size: 1.5em;
-            background-color: rgb(170, 207, 244);
-            position: relative;
-        }
-
-        .fixed-box {
-            background-color: rgb(12, 48, 92);
+        .button {
+            width: 92vw;
+            height: 92vh;
+            background-color: rgb(255, 0, 170);
             color: white;
-            position: fixed;
-            top: 1.5em;
-            right: 1.5em;
-            z-index: 2;
-            padding: 1.5em;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease, font-size 0.3s ease;
+            font-family: Arial, sans-serif;
         }
-
+        .button:hover {
+            background-color: rgb(162, 0, 255);
+            transform: scale(1.05);
+            font-size: 2.2rem;
+            font-family: "Courier New", monospace;
+        }
+        .button:active {
+            background-color: rgb(0, 6, 193);
+            transform: scale(0.95);
+            font-size: 1.8rem;
+            font-family: "Georgia", serif;
+        }
     </style>
 </head>
 <body>
+    <button class="button" id="dynamicButton"></button>
 
+    <script>
+        const button = document.getElementById("dynamicButton");
 
-    <div class="envelope">
+        button.addEventListener("mouseover", () => {
+            button.textContent = "Almost There...";
+        });
 
-      <div class="fixed-box"><h1>New York City</h1></div>
-      <br>
+        button.addEventListener("mouseout", () => {
+            button.textContent = "Press Meee";
+        });
 
-      <div class="stickybox"><h2>Uptown</h2></div>
-      <br>
+        button.addEventListener("mousedown", () => {
+            button.textContent = ":D";
+        });
 
-      <ul>
-    <li><a href="https://en.wikipedia.org/wiki/Central_Park" target="_blank"><p1>Central Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Riverside_Park_(Manhattan)" target="_blank"><p1>Riverside Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Fort_Tryon_Park" target="_blank"><p1>Fort Tryon Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Flushing_Meadows%E2%80%93Corona_Park" target="_blank"><p1>Flushing Meadows–Corona Park</p1></a></li>
-      </ul>
-      <br><br>
-
-      <div class="stickybox"><h2>Midtown</h2></div>
-      <br>
-
-      <ul>
-    <li><a href="https://en.wikipedia.org/wiki/Bryant_Park" target="_blank"><p1>Bryant Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Hudson_River_Park" target="_blank"><p1>Hudson River Park</p1></a></li>
-      </ul>
-      <br><br>
-
-      <div class="stickybox"><h2>Downtown</h2></div>
-      <br>
-
-        <ul>
-    <li><a href="https://en.wikipedia.org/wiki/Washington_Square_Park" target="_blank"><p1>Washington Square Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/High_Line_(Manhattan)" target="_blank"><p1>The High Line</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge_Park" target="_blank"><p1>Brooklyn Bridge Park</p1></a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Prospect_Park_(Brooklyn)" target="_blank"><p1>Prospect Park</p1></a></li>
-      </ul>
-
-      <br><br>
-    
-    </div>
-
+        button.addEventListener("mouseup", () => {
+            button.textContent = ":)";
+        });
+    </script>
 </body>
 </html>
