@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
-	
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Syne+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Rubik+Glitch&family=Syne+Mono&display=swap" rel="stylesheet">
+
+
     <style>
 		* {
 			box-sizing: border-box;
@@ -41,7 +41,10 @@
             font-family: "Leckerli One", cursive;
             font-weight: 400;
             font-style: normal;
-            font-size: 2.5em;
+            font-size: 1.8em;
+            text-align: center;
+            line-height: 2em;
+            color:rgb(164, 100, 224)
         }
 
 		.ugly {
@@ -49,6 +52,9 @@
             font-weight: 400;
             font-style: normal;
             font-size: 6em;
+            text-align: right;
+            word-spacing: 1em;
+            color: grey;
 		}
 
 	</style>
@@ -119,10 +125,10 @@
         let buttonScary = document.querySelector('#buttonScary');
 		buttonScary.addEventListener('click', function() {
 			resetAllStyles();
-			container.style.fontFamily = "Georgia";
-			container.style.letterSpacing = "-0.1em";
+			container.style.fontFamily = "Syne Mono";
+			container.style.letterSpacing = "5em";
 			container.style.textAlign = "center";
-			container.style.fontSize = "80px";
+			container.style.fontSize = "10px";
 			container.style.wordSpacing = "2em";
 			container.style.lineHeight = "3em";
 		})
@@ -130,12 +136,13 @@
         let buttonFriendly = document.querySelector('#buttonFriendly');
 		buttonFriendly.addEventListener('click', function() {
 			resetAllStyles();
-			container.style.fontFamily = "Georgia";
-			container.style.letterSpacing = "-0.1em";
-			container.style.textAlign = "center";
+			container.style.fontFamily = "Indie Flower";
+			container.style.letterSpacing = "0em";
+			container.style.textAlign = "left";
 			container.style.fontSize = "80px";
-			container.style.wordSpacing = "2em";
-			container.style.lineHeight = "3em";
+			container.style.wordSpacing = "0.5em";
+			container.style.lineHeight = "2em";
+            container.style.color = "rgb(100, 100, 250)";
 		})
 
 
