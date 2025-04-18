@@ -3,150 +3,114 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Weekly challenge</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Syne+Mono&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Rubik+Glitch&family=Syne+Mono&display=swap" rel="stylesheet">
-
-
-    <style>
-		* {
-			box-sizing: border-box;
-		}
-		.title {
-			text-align: center;
-		}
-		.controls {
+	<title>Weekly Challenge</title>
+	<style>
+		body {
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			flex-direction: column;
-			gap: 5px;
-			padding: 20px;
+			height: 100vh;
+			margin: 0;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			background-color: #f5f5f5;
 		}
-		.controls-buttons {
+		#navButtons {
 			display: flex;
-			justify-content: center;
-			gap: 5px;
+			gap: 20px;
+			margin-bottom: 20px;
 		}
-		#container {
-			transition: .5s;
+		.small-button {
+			padding: 10px 20px;
+			font-size: 14px;
+			width: 120px;
+			height: 40px;
+			border-radius: 6px;
+			border: none;
+			background-color: #ddd;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
 		}
-
-		.pretty {
-            font-family: "Leckerli One", cursive;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1.8em;
-            text-align: center;
-            line-height: 2em;
-            color:rgb(164, 100, 224)
-        }
-
-		.ugly {
-            font-family: "Rubik Glitch", system-ui;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 6em;
-            text-align: right;
-            word-spacing: 1em;
-            color: grey;
+		.small-button:hover {
+			background-color: #ccc;
 		}
-
+		#buttonRandom {
+			padding: 14px 28px;
+			font-size: 16px;
+			width: 180px;
+			height: 50px;
+			border-radius: 8px;
+			border: none;
+			background-color: #87ceeb;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		#buttonRandom:hover {
+			background-color: #6bb9d9;
+		}
+		#output {
+			margin-top: 40px;
+			font-size: 24px;
+			max-width: 80%;
+		}
 	</style>
 </head>
 <body>
 
-	<nav class="controls">
-		<h1 class="title">Elle's Week 11 Coding Challenge</h1>
+	<div id="navButtons">
+		<button id="buttonPrev" class="small-button">Previous</button>
+		<button id="buttonNext" class="small-button">Next</button>
+	</div>
+	<button id="buttonRandom">Random Fortune</button>
 
-		<div class="controls-buttons">
-			<button id="reset">Reset</button>
-		</div>
-
-		<h2><code>.classList</code>!</h2>
-		<div class="controls-buttons">
-			<button id="buttonPretty">Make the text *pretty*</button>
-			<button id="buttonUgly">Make the text *ugly*</button>
-		</div>
-
-		<h2><code>.style</code>!</h2>
-		<div class="controls-buttons">
-			<button id="buttonScary">Make the text *scary*</button>
-			<button id="buttonFriendly">Make the text *friendly*</button>
-		</div>
-	</nav>
-	
-	<main id="container">
-		<p>JavaScript is capable of dynamically changing a page’s content. We can use it to update HTML and CSS, even after a page has fully loaded.</p>
-		<p>What does this mean for us as designers? It means that we’ve unlocked a new superpower of code — <strong>the ability to change</strong>. Previously, code was a way for laying out responsive content that could work on any screen size. That’s definitely impactful! But with JavaScript, we can create pages that enable <strong>meaningful user interaction</strong>.</p>
-		<p>There’s a lot to learn, so we’re starting slow. This page features some text, which is what you’re reading right now. Your challenge is to keep adding to the user interface above that lets the user customize how this text looks. To do this, follow these steps:</p>
-		<ol>
-			<li>I’ve added 4 buttons with unique IDs that don’t do anything as of now.</li>
-			<li>Assign each of these buttons to new <strong>variables</strong> using JavaScript in the <code>&lt;script&gt;</code> element. Hint: you’ll need to use <code>document.querySelector()</code>!</li>
-			<li>Make each of those buttons interactive by using <code>.addEventListener()</code> and have them customize the CSS for the text you’re currently reading. As indicated, use <code>.classList</code> to add CSS classes or use <code>.style</code> to add inline CSS styles.</li>
-			<li>Note: for the <code>.classList</code> buttons, add styles to each class in CSS portion of this document that corresponds to the classes you just add via JavaScript.</li>
-		</ol>
-		<p>And like magic, the site is now dynamic without needing to reload the page at all!</p>
-	</main>
+	<div id="output">You will have a <span style='font-size: 40px; color: blue;'>GLORIOUS</span> day.</div>
 
 	<script>
-		let container = document.querySelector('#container');
+		let fortunes = [
+			"You will have a <span style='font-size: 40px; color: blue;'>GLORIOUS</span> day.",
+			"You will consume much <span style='letter-spacing: 1em; color: orange;'>cheese</span>.",
+			"You will stumble upon a lost sock that solves all your problems.",
+			"A mysterious cat will follow you. Befriend it.",
+			"You will receive a message from the universe... via meme.",
+			"A nap today will unlock hidden powers.",
+			"Beware of paperclips. That’s all we can say.",
+			"You will make someone laugh so hard they snort.",
+			"Today is the perfect day to wear mismatched socks.",
+			"A great idea will come to you in the shower.",
+			"You will become a master of snacks.",
+			"Something weird but wonderful is coming your way."
+		];
 
-		function resetAllStyles() {
-			container.removeAttribute('class');
-			container.removeAttribute('style');
+		let currentFortuneIndex = 0;
+		let output = document.querySelector('#output');
+
+		function nextFortune() {
+			currentFortuneIndex++;
+			if (currentFortuneIndex >= fortunes.length) {
+				currentFortuneIndex = 0;
+			}
+			output.innerHTML = fortunes[currentFortuneIndex];
 		}
 
-		let buttonReset = document.querySelector('#reset');
-		buttonReset.addEventListener('click', resetAllStyles);
+		function prevFortune() {
+			currentFortuneIndex--;
+			if (currentFortuneIndex < 0) {
+				currentFortuneIndex = fortunes.length - 1;
+			}
+			output.innerHTML = fortunes[currentFortuneIndex];
+		}
 
+		function randomFortune() {
+			let randomIndex = Math.floor(Math.random() * fortunes.length);
+			currentFortuneIndex = randomIndex;
+			output.innerHTML = fortunes[currentFortuneIndex];
+		}
 
-		// ———— USE .classList FOR THESE BUTTONS ———— //
-
-        let buttonPretty = document.querySelector('#buttonPretty');
-		buttonPretty.addEventListener('click', function() {
-			resetAllStyles();
-			container.classList.add('pretty');
-		})
-
-        let buttonUgly = document.querySelector('#buttonUgly');
-		buttonUgly.addEventListener('click', function() {
-			resetAllStyles();
-			container.classList.add('ugly');
-		})
-
-		// ———— USE .style FOR THESE BUTTONS ———— //
-
-        let buttonScary = document.querySelector('#buttonScary');
-		buttonScary.addEventListener('click', function() {
-			resetAllStyles();
-			container.style.fontFamily = "Syne Mono";
-			container.style.letterSpacing = "5em";
-			container.style.textAlign = "center";
-			container.style.fontSize = "10px";
-			container.style.wordSpacing = "2em";
-			container.style.lineHeight = "3em";
-		})
-
-        let buttonFriendly = document.querySelector('#buttonFriendly');
-		buttonFriendly.addEventListener('click', function() {
-			resetAllStyles();
-			container.style.fontFamily = "Indie Flower";
-			container.style.letterSpacing = "0em";
-			container.style.textAlign = "left";
-			container.style.fontSize = "80px";
-			container.style.wordSpacing = "0.5em";
-			container.style.lineHeight = "2em";
-            container.style.color = "rgb(100, 100, 250)";
-		})
-
-
+		document.querySelector("#buttonNext").addEventListener('click', nextFortune);
+		document.querySelector("#buttonPrev").addEventListener('click', prevFortune);
+		document.querySelector("#buttonRandom").addEventListener('click', randomFortune);
 	</script>
-	
+
 </body>
 </html>
