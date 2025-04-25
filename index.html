@@ -3,114 +3,71 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Weekly Challenge</title>
+	<title>Elle's Weekly Challenge</title>
+
 	<style>
-		body {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
+		* {
+			box-sizing: border-box;
 			margin: 0;
-			font-family: Arial, sans-serif;
-			text-align: center;
-			background-color: #f5f5f5;
+			padding: 0;
 		}
-		#navButtons {
+		#container {
 			display: flex;
-			gap: 20px;
-			margin-bottom: 20px;
+			width: 100vw;
+			height: 100vh;
 		}
-		.small-button {
-			padding: 10px 20px;
-			font-size: 14px;
-			width: 120px;
-			height: 40px;
-			border-radius: 6px;
-			border: none;
-			background-color: #ffb2e7;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-		.small-button:hover {
-			background-color: #ff76bd;
-		}
-		#buttonRandom {
-			padding: 14px 28px;
-			font-size: 16px;
-			width: 180px;
-			height: 50px;
-			border-radius: 8px;
-			border: none;
-			background-color: #9bc6ff;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-		#buttonRandom:hover {
-			background-color: #5795ff;
-		}
-		#output {
-			margin-top: 40px;
-			font-size: 24px;
-			max-width: 80%;
+		#container div {
+			flex-grow: 1;
 		}
 	</style>
+
+	<script src="https://cdn.jsdelivr.net/npm/tone@latest/build/Tone.js"></script>
 </head>
 <body>
 
-	<div id="navButtons">
-		<button id="buttonPrev" class="small-button">Previous</button>
-		<button id="buttonNext" class="small-button">Next</button>
-	</div>
-	<button id="buttonRandom">Random Fortune</button>
-
-	<div id="output">You will have a <span style='font-size: 40px; color: blue;'>GLORIOUS</span> day.</div>
+	<div id="container"></div>
 
 	<script>
-		let fortunes = [
-			"You will have a <span style='font-size: 40px; color: blue;'>GLORIOUS</span> day.",
-			"You will consume much <span style='letter-spacing: 1em; color: orange;'>cheese</span>.",
-			"You will invent <span style='letter-spacing: 0.5em; color: red;'>something</span>!",
-			"Your kindness will return to you.",
-			"Someone you admire also admires you.",
-			"Don't be afraid to make the leap of faith.",
-			"<span style='font-size: 30px; color: purple;'>ADVENTURE</span> is out there.",
-			"You create your own happiness.",
-			"Stop and smell the <span style='font-size: 20px; color: pink;'>flowers</span>.",
-			"Trust the <span style='font-size: 30px; letter-spacing: 1em; color: green;'> <br> process</span>.",
-			"Be proud of how far you've come.",
-			"You will know your self-worth."
-		];
+		let synth = new Tone.Synth().toDestination();
+		function playRandomNote() {
+			Tone.start();
+			let notes = ["C", "D", "E", "F", "G", "A", "B"];
+			let randomOctave = Math.round(Math.random() * 5 + 1);
+			let randomNote = notes[Math.floor(Math.random() * notes.length)];
+			synth.triggerAttackRelease(randomNote + randomOctave, "64n");
+		}
 
-		let currentFortuneIndex = 0;
-		let output = document.querySelector('#output');
+		let container = document.querySelector("#container");
+		function generateDivs() {
 
-		function nextFortune() {
-			currentFortuneIndex++;
-			if (currentFortuneIndex >= fortunes.length) {
-				currentFortuneIndex = 0;
+			container.innerHTML = "";
+
+			let randomCount = Math.floor(Math.random() * 101);
+			for (let i = 0; i < randomCount; i++) {
+				
+				let newElement = document.createElement("div");
+
+				let red = Math.round(Math.random() * 255);
+				let green = Math.round(Math.random() * 255);
+				let blue = Math.round(Math.random() * 255);
+				newElement.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+				container.append(newElement);
+
+				newElement.addEventListener('mouseenter', function() {
+					playRandomNote();
+
+					let red = Math.round(Math.random() * 255);
+					let green = Math.round(Math.random() * 255);
+					let blue = Math.round(Math.random() * 255);
+					newElement.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+				});
 			}
-			output.innerHTML = fortunes[currentFortuneIndex];
 		}
 
-		function prevFortune() {
-			currentFortuneIndex--;
-			if (currentFortuneIndex < 0) {
-				currentFortuneIndex = fortunes.length - 1;
-			}
-			output.innerHTML = fortunes[currentFortuneIndex];
-		}
-
-		function randomFortune() {
-			let randomIndex = Math.floor(Math.random() * fortunes.length);
-			currentFortuneIndex = randomIndex;
-			output.innerHTML = fortunes[currentFortuneIndex];
-		}
-
-		document.querySelector("#buttonNext").addEventListener('click', nextFortune);
-		document.querySelector("#buttonPrev").addEventListener('click', prevFortune);
-		document.querySelector("#buttonRandom").addEventListener('click', randomFortune);
+		generateDivs();
+		setInterval(generateDivs, 1000);
 	</script>
-
+	
 </body>
 </html>
