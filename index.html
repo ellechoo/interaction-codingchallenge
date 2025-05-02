@@ -5,54 +5,115 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Wikipedia Randomizer</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
 
-	<!-- No need to edit this code unless you want to go extra! -->
+
 	<style>
 		* {
 			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
 		}
+
+		h2 {
+			font-family: "Barriecito", system-ui;
+  			font-weight: 400;
+  			font-style: normal;
+			font-size: 2.5rem;
+			color: #5079ff;
+		}
+
+		button {
+			font-family: 'Inter', sans-serif;
+			background-color: #ffbb5d;
+			color: #ffffff;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+			font-size: 1rem;
+			transition: all 0.2s ease-in-out;
+			border-radius: 15px;
+		}
+
+		button:hover {
+			background-color: #ff8567;
+			color: #ffffff;
+		}
+
+		input {
+			font-family: 'Inter', sans-serif;
+			background-color: #000000;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		label {
+			font-family: 'Inter', sans-serif;
+			margin-top: 10px;
+			display: block;
+		}
+
 		.controls {
-			background-color: #ccc;
+			background-color: #ffe292;
 			display: flex;
 			flex-wrap: wrap;
 			gap: 20px;
 			padding: 20px;
 		}
+
 		.controls button {
 			padding: 10px;
+			border-radius: 5px;
 		}
+
 		.container {
 			display: flex;
 			flex-wrap: wrap;
 			padding: 10px;
 			gap: 10px;
 		}
+
 		.container a {
 			flex-grow: 1;
 			text-decoration: none;
-			font-family: sans-serif;
-			background-color: blue;
+			font-family: 'Inter', sans-serif;
+			background-color: rgb(200, 138, 255);
 			color: white;
 			text-align: center;
 			padding: 10px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			transition: all 0.2s ease-in-out;
 		}
-		.container a:hover {
-			opacity: .5;
+
+		.container a {
+			transition: all 0.2s ease-in-out;
 		}
+
+		.container a.pastel-hover:hover {
+			background-color: #ffe0f0;
+			color: #333;
+			opacity: 1;
+		}
+
+		.container a.custom-style {
+			font-size: var(--font-size);
+			background-color: var(--bg-color);
+			color: var(--text-color);
+		}
+
 	</style>
 
-	<!-- Import Tone.js (for the bonus challenge) -->
 	<script src="https://cdn.jsdelivr.net/npm/tone@latest/build/Tone.js"></script>
 </head>
 
 <body>
 
-	<!-- Your controls (already finished) -->
 	<div class="controls">
 		<div>
 			<h2>Number of articles</h2>
@@ -80,18 +141,12 @@
 	<div class="container"></div>
 
 	<script>
-		// ————————————————————————————————————————
-		// Object to hold all of your settings (already finished)
-
 		let settings = {
 			"numberOfArticles": 20,
 			"fontSize": 18,
 			"backgroundColor": "#0000ff",
 			"textColor": "#ffffff",
-		}
-
-		// ————————————————————————————————————————
-		// Target all of our elements (already finished)
+		};
 
 		let controlsNumberOfArticles = document.querySelector("#controlsNumberOfArticles");
 		let controlsNumberOfArticlesLabel = document.querySelector("#controlsNumberOfArticlesLabel");
@@ -105,71 +160,81 @@
 		let controlsTextColor = document.querySelector("#controlsTextColor");
 		let controlsTextColorLabel = document.querySelector("#controlsTextColorLabel");
 
-		// ————————————————————————————————————————
-		// STEP 1: Add event listeners to our input elements (for you to finish)
-
-		// This button is already finished
 		controlsNumberOfArticles.addEventListener('input', function () {
-			settings.numberOfArticles = controlsNumberOfArticles.value; // update the settings
-			controlsNumberOfArticlesLabel.textContent = controlsNumberOfArticles.value; // update the label
+			settings.numberOfArticles = controlsNumberOfArticles.value;
+			controlsNumberOfArticlesLabel.textContent = controlsNumberOfArticles.value;
 		});
-
 		controlsFontSize.addEventListener('input', function () {
-			/* TODO */
+			settings.fontSize = controlsFontSize.value;
+			controlsFontSizeLabel.textContent = controlsFontSize.value;
 		});
-
 		controlsBackgroundColor.addEventListener('input', function () {
-			/* TODO */
+			settings.backgroundColor = controlsBackgroundColor.value;
+			controlsBackgroundColorLabel.textContent = controlsBackgroundColor.value;
+		});
+		controlsTextColor.addEventListener('input', function () {
+			settings.textColor = controlsTextColor.value;
+			controlsTextColorLabel.textContent = controlsTextColor.value;
 		});
 
-		controlsTextColor.addEventListener('input', function () {
-			/* TODO */
-		});
-		
-		// ————————————————————————————————————————
-		// Most of the code below is from today’s sneak peek
-		// Check out that demo if you want more comments explaining what’s happening
+		const synth = new Tone.Synth().toDestination();
 
 		function getRandomArticles() {
-
-			// Reset the container
 			let container = document.querySelector('.container');
 			container.innerHTML = '';
 
-			// STEP 2: Build the URL to fetch content from
-			let url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&list=random&rnnamespace=0&rnlimit=${/* TODO */}`;
+			let url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&list=random&rnnamespace=0&rnlimit=${settings.numberOfArticles}`;
 
 			fetch(url)
-				.then(function (response) { return response.json(); })
-				.then(function (response) {
+				.then(response => response.json())
+				.then(response => {
 					let wikipediaData = response.query.random;
 					for (let key in wikipediaData) {
 						let entry = wikipediaData[key];
 						let articleName = entry.title;
 
-						// Create a new element (no need to edit this)
 						let newLink = document.createElement('a');
-						newLink.href = `https://en.wikipedia.org/wiki/${articleName}`; // the actual article URL
-						newLink.target = "_blank"; // open in new tab
-						newLink.textContent = articleName; // the article name
+						newLink.href = `https://en.wikipedia.org/wiki/${articleName}`;
+						newLink.target = "_blank";
+						newLink.textContent = articleName;
 
-						// STEP 3: Set the CSS of the newly created element
-						newLink.style.fontSize = /* TODO */; // hint: this will require units
-						newLink.style.backgroundColor = /* TODO */;
-						newLink.style.color = /* TODO */;
+						newLink.classList.add("pastel-hover");
+						newLink.style.fontSize = settings.fontSize + "px";
+						
 
-						// Add the element to the container
+						newLink.addEventListener('mouseenter', () => {
+							Tone.start();
+							const notes = ["C4", "E4", "G4", "A4", "B4", "C5"];
+							const note = notes[Math.floor(Math.random() * notes.length)];
+							synth.triggerAttackRelease(note, "8n");
+
+							
+							newLink.style.backgroundColor = "#ffe0f0";
+							newLink.style.color = "#333";
+						});
+
+						newLink.addEventListener('mouseleave', () => {
+							newLink.style.backgroundColor = settings.backgroundColor;
+							newLink.style.color = settings.textColor;
+						});
+
+						//sound
+						newLink.addEventListener('mouseenter', () => {
+							Tone.start();
+							const notes = ["C4", "E4", "G4", "A4", "B4", "C5"];
+							const note = notes[Math.floor(Math.random() * notes.length)];
+							synth.triggerAttackRelease(note, "8n");
+						});
+
 						container.append(newLink);
 					}
-
-				})
+				});
 		}
 
-		// Add event listener to the button to generate articles
 		let generateButton = document.querySelector('#generateButton');
 		generateButton.addEventListener('click', getRandomArticles);
-
 	</script>
+
 </body>
 
 </html>
